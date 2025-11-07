@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "tc01": "npx playwright test tests/TC01_Home_Page_with_three_Sliders_only.test.ts --headed",
+    "tc02": "npx playwright test tests/TC02_ Registration_Sign_in.test.ts --headed",
+    "test:all": "npx playwright test --headed"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
