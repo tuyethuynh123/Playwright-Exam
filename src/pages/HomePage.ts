@@ -1,4 +1,5 @@
 import { BasePage } from './BasePage';
+import { Locator } from '@playwright/test';
 
 export class HomePage extends BasePage {
   private readonly sliders = '.n2-ss-slider';  
@@ -13,7 +14,15 @@ export class HomePage extends BasePage {
     await this.page.waitForSelector(this.sliders);
   }
 
-  public async getTotalSlides() {
-    return await this.page.locator('.n2-ss-slide').count();
+  public getArrivals(): Locator {
+    return this.page.locator('.woocommerce .products li');
+  }
+
+  public async clickArrivalByIndex(index: number = 0) {
+  await this.getArrivals().nth(index).locator('img').click({ force: true });
+}
+
+  public async clickFirstArrival() {
+    await this.clickArrivalByIndex(0);
   }
 }
